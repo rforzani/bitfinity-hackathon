@@ -62,7 +62,7 @@ NexaChallenge addresses several critical issues within the freelancing industry:
 - Companies are required to have sufficient funds in escrow for projects, guaranteeing that freelancers receive timely payment for their work, and preventing payment disputes.
 
 ### 4. Streamlined Process
-- Limits the number of competing freelancers to 5, making project selection more efficient for companies, reducing the time and effort required for decision-making.
+- Limits the number of competing freelancers to a set value, making project selection more efficient for companies, reducing the time and effort required for decision-making.
 
 ---
 
