@@ -1,6 +1,6 @@
 export const cloudPath = "http://localhost:8080";
 export const chainId = 355113;
-export const contract = "0x121c88f745EA895ba828C1e897Bf1eA6c2a95087";
+export const contract = "0xDcd11970405Cb18a1645C57941b2C79aA5F1d610";
 export const contractAbi = [
     {
         "anonymous": false,
