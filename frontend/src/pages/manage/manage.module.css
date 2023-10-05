@@ -1,0 +1,33 @@
+.projectContainer {
+    width: 500px;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    background-color: white;
+    text-align: left;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    align-items: center;
+}
+
+.challenge {
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+.submission {
+    background-color: rgb(250,250,250);
+    padding-inline: 15px;
+    padding-block: 2px;
+    border-radius: 10px;
+
+}

@@ -1,7 +1,9 @@
 export const businessRoutes = [
-    "/create"
+    "/create",
+    "/manage"
 ];
 
 export const loggedInRoutes = [
-    "/account"
+    "/account",
+    "/explore"
 ];

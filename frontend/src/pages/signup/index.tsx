@@ -65,10 +65,10 @@ export default function Signup() {
     return (
         <div className={styles.container}>
             <h1>Signup</h1>
-            <input type="text" className={styles.input} placeholder="First Name..." onChange={(e) => setFirstName(e.target.value)} />
-            <input type="text" className={styles.input} placeholder="Last Name..." onChange={(e) => setLastName(e.target.value)} />
-            <input type="text" className={styles.input} placeholder="Username..." onChange={(e) => setUsername(e.target.value)} />
-            <input type="password" className={styles.input} placeholder="Password..." onChange={(e) => setPassword(e.target.value)} />
+            <input type="text" className={styles.input} placeholder="First Name..." onChange={(e) => setFirstName(e.target.value)} value={firstName}/>
+            <input type="text" className={styles.input} placeholder="Last Name..." onChange={(e) => setLastName(e.target.value)} value={lastName}/>
+            <input type="text" className={styles.input} placeholder="Username..." onChange={(e) => setUsername(e.target.value)} value={username}/>
+            <input type="password" className={styles.input} placeholder="Password..." onChange={(e) => setPassword(e.target.value)} value={password}/>
             <Select placeholder="Select an account type" className={styles.select} onChange={(value : any) => onAccountTypeSelect(value)} options={accountTypeOptions} value={selectedAccountType} />
             <label><b>Connected Wallet Address</b></label>
             {account ? account : "No wallet currently connected. Please connect."}

@@ -1,0 +1,13 @@
+.container {
+    margin: 0 auto;
+    border: 1px solid lightgrey;
+    width: 700px;   
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 18px;
+    text-align: left;
+}

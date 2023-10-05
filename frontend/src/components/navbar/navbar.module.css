@@ -1,0 +1,35 @@
+.container {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 65px;
+    box-shadow: 0 0.5px 100px rgba(105, 105, 105, 0.1);
+}
+
+.item {
+    padding-inline: 25px;
+    font-size: 18px;
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: rgb(47, 47, 47);
+}
+
+.item:hover {
+    background-color: rgb(251,251,251);
+}
+
+.selected {
+    font-weight: bold;
+}

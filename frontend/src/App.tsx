@@ -10,6 +10,7 @@ import { BrowserRouter } from "react-router-dom";
 //import { Chain } from 'wagmi';
 //import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import Routes from "./Routes";
+import NavBar from './components/navbar';
 //import { RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit';
 
 function App() {
@@ -58,8 +59,9 @@ function App() {
     
 */
   return (
-        <div style={{position: "absolute", width: "100%", left: 0, top: 0}}>
+        <div style={{position: "absolute", width: "100%", left: 0, top: 0, paddingTop: 65}}>
             <BrowserRouter>
+                <NavBar />
                 <Routes pages={pages} />
             </BrowserRouter>
         </div>
