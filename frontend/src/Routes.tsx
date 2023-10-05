@@ -33,7 +33,6 @@ export default function Routes({ pages } : { pages: any }) : any {
   return (
     <ReactRouterRoutes>
       {routeComponents}
-      <Route path="*" element={<NotFound />} />
     </ReactRouterRoutes>
   );
 }

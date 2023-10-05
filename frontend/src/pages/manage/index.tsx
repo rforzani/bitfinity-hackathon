@@ -8,9 +8,10 @@ export default function ManagePage() {
     const [competitions, setCompetitions] = useState<any>([]);
     const [challenge, setChallenge] = useState<any>(null);
     const [submissions, setSubmissions] = useState<any>([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState<any>(null);
     const [message, setMessage] = useState("");
     const [address, setAddress] = useState("");
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         async function fetchWalletData() {
@@ -35,6 +36,7 @@ export default function ManagePage() {
         async function fetchData() {
             let res = await axios.get(`${cloudPath}/getAllCompetitions`, {withCredentials: true});
             setCompetitions(res.data.competitions);
+            setLoaded(true);
         }
         fetchData();
     }, []);
@@ -49,9 +51,9 @@ export default function ManagePage() {
         }
     }, [challenge]);
 
-    const chooseSubmission = async (addr : string) => {
+    const chooseSubmission = async (addr : string, idx: number) => {
         if (!loading) {
-            setLoading(true);
+            setLoading(idx);
             try {
                 const contractObj = new window.web3.eth.Contract(contractAbi, contract);
                 const functionName = 'pickWinner';
@@ -70,7 +72,7 @@ export default function ManagePage() {
             } catch (err) {
                 console.log(err);
             }
-            setLoading(false);
+            setLoading(null);
         }
     }
 
@@ -79,24 +81,26 @@ export default function ManagePage() {
             {!challenge ?
                 <>
                     <h1>Your tasks</h1>
-                        {competitions.length ? 
-                            <div className={styles.container}>
-                                {competitions.map((competition : any) => {
-                                    return (
-                                        <div key={competition._id} className={styles.projectContainer} onClick={() => setChallenge(competition)}>
-                                            <h2>{competition.title}</h2>
-                                            <p>Short Description: {competition.shortDescription}</p>
-                                            <p>Deadline: {new Date(competition.deadline).toDateString()}</p>
-                                            <p>Reward: {competition.reward} BFT</p>
-                                            <p>Maximum submissions: {competition.challengers}</p>
-                                            <p>Submissions: {competition.participants}</p>
-                                            <p>Winner: {competition.open ? "Not determined" : "determined"}</p>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        :
-                            <div style={{textAlign: "center"}}>You have not created any tasks yet. Start by adding one.</div>
+                        {loaded &&
+                            (competitions.length ? 
+                                <div className={styles.container}>
+                                    {competitions.map((competition : any) => {
+                                        return (
+                                            <div key={competition._id} className={styles.projectContainer} onClick={() => setChallenge(competition)}>
+                                                <h2>{competition.title}</h2>
+                                                <p>Short Description: {competition.shortDescription}</p>
+                                                <p>Deadline: {new Date(competition.deadline).toDateString()}</p>
+                                                <p>Reward: {competition.reward} BFT</p>
+                                                <p>Maximum submissions: {competition.challengers}</p>
+                                                <p>Submissions: {competition.participants}</p>
+                                                <p>Winner: {competition.open ? "Not determined" : "determined"}</p>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            :
+                                <div style={{textAlign: "center"}}>You have not created any tasks yet. Start by adding one.</div>
+                            )
                         }
                 </>
             :
@@ -114,12 +118,13 @@ export default function ManagePage() {
                                 <p style={{fontWeight: "bold", fontSize: 20}}>Check the submissions</p>
                                 {challenge.participants > 0 ?
                                     <>
-                                        {submissions.map((submission : any) => {
+                                        {submissions.map((submission : any, index: number) => {
                                             return (
                                                 <div key={submission._id} className={styles.submission}>
-                                                    <p>Link: {submission.link}</p>
+                                                    <p>Link: </p>
+                                                    <p style={{overflow: "scroll", marginTop: -10}}>{submission.link}</p>
                                                     <p>Submitted by: {submission.address}</p>
-                                                    <button onClick={() => chooseSubmission(submission.address)} style={{backgroundColor: "white", marginBottom: 10}}>{!loading ? "Pick" : "Loading..."}</button>
+                                                    <button onClick={() => chooseSubmission(submission.address, index)} style={{backgroundColor: "white", marginBottom: 10}}>{loading === index ? "Loading..." : "Pick"}</button>
                                                 </div>
                                             );
                                         })}

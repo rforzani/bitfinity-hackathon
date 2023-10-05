@@ -128,7 +128,7 @@ app.get("/getCompetitions", hasStandardAuthorization, async (req, res) => {
 
 app.get("/getAllCompetitions", hasStandardAuthorization, async (req, res) => {
     const db = await getDB();
-    let competitions = await db.collection("projects").find({$expr: {$lt: ["$participants", "$challengers"]}}).toArray();
+    let competitions = await db.collection("projects").find({$expr: {$lte: ["$participants", "$challengers"]}}).toArray();
     res.json({competitions: competitions});
 });
 
