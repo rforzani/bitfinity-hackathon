@@ -79,21 +79,25 @@ export default function ManagePage() {
             {!challenge ?
                 <>
                     <h1>Your tasks</h1>
-                    <div className={styles.container}>
-                        {competitions.map((competition : any) => {
-                            return (
-                                <div key={competition._id} className={styles.projectContainer} onClick={() => setChallenge(competition)}>
-                                    <h2>{competition.title}</h2>
-                                    <p>Short Description: {competition.shortDescription}</p>
-                                    <p>Deadline: {new Date(competition.deadline).toDateString()}</p>
-                                    <p>Reward: {competition.reward} BFT</p>
-                                    <p>Maximum submissions: {competition.challengers}</p>
-                                    <p>Submissions: {competition.participants}</p>
-                                    <p>Winner: {competition.open ? "Not determined" : "determined"}</p>
-                                </div>
-                            );
-                        })}
-                    </div>
+                        {competitions.length ? 
+                            <div className={styles.container}>
+                                {competitions.map((competition : any) => {
+                                    return (
+                                        <div key={competition._id} className={styles.projectContainer} onClick={() => setChallenge(competition)}>
+                                            <h2>{competition.title}</h2>
+                                            <p>Short Description: {competition.shortDescription}</p>
+                                            <p>Deadline: {new Date(competition.deadline).toDateString()}</p>
+                                            <p>Reward: {competition.reward} BFT</p>
+                                            <p>Maximum submissions: {competition.challengers}</p>
+                                            <p>Submissions: {competition.participants}</p>
+                                            <p>Winner: {competition.open ? "Not determined" : "determined"}</p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        :
+                            <div style={{textAlign: "center"}}>You have not created any tasks yet. Start by adding one.</div>
+                        }
                 </>
             :
                 <>
@@ -121,7 +125,7 @@ export default function ManagePage() {
                                         })}
                                     </>
                                 :
-                                    "No participants yet"
+                                    <>No participants yet<br /></>
                                 }
                             </>
                         :   

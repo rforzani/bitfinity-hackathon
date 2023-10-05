@@ -9,6 +9,7 @@
     cursor: pointer;
     user-select: none;
     height: 100%;
+    text-align: left;
 }
 .outerContainer {
     position: relative;
