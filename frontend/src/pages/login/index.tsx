@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./login.module.css";
+import axios from "axios";
+import { cloudPath } from "../../config/config";
 
 export default function Login() {
     const [username, setUsername] = useState("");
@@ -8,7 +10,16 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
 
     const login = async () => {
-        
+        if (!loading) {
+            setLoading(true);
+            try {
+                await axios.post(`${cloudPath}/standardLogin`, {username: username, password: password}, {withCredentials: true});
+                window.location.replace("/account");
+            } catch (err : any) {
+                setMessage(err.response.data.message);
+            }
+            setLoading(false);
+        }
     };
 
     return (
