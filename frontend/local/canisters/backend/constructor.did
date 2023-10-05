@@ -1,0 +1,7 @@
+type Backend = 
+ service {
+   add: (nat) -> ();
+   get: () -> (nat) query;
+   inc: () -> ();
+ };
+service : () -> Backend
