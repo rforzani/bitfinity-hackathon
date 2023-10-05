@@ -7,6 +7,11 @@ NexaChallenge is a revolutionary decentralized platform designed to transform th
 - [Target Audience](#target-audience)
 - [Problem Solving](#problem-solving)
 - [Vision Statement](#vision-statement)
+- [Getting Started](#getting-started)
+    - [Backend Setup](#backend-setup)
+    - [Frontend Setup](#frontend-setup)
+    - [Deployment](#deployment)
+    - [Configurations](#configurations)
 
 ---
 
@@ -67,16 +72,97 @@ NexaChallenge addresses several critical issues within the freelancing industry:
 
 ---
 
-Thank you for your interest in NexaChallenge. For detailed information, installation instructions, and usage guidelines, please refer to the project's documentation and user guides in the respective repositories.
+## Getting Started
 
-**For Developers:** Check out the [Developer Documentation](link-to-developer-docs) to get started with contributing to NexaChallenge.
+Follow these steps to set up and run the project:
 
-We welcome your feedback, contributions, and ideas to make NexaChallenge even better!
+### Backend Setup
 
-For inquiries, contact us at [contact@nexachallenge.com](mailto:contact@nexachallenge.com).
+1. Open your terminal or command prompt.
+2. Navigate to the backend directory using the `cd` command:
 
-[Visit NexaChallenge Website](https://www.nexachallenge.com)
+```bash
+cd backend
+```
+
+3. Install the required dependencies:
+
+```bash
+npm install
+```
+
+4. Start the backend server:
+
+```bash
+npm run dev
+```
+
+### Frontend Setup
+
+1. Open a new terminal window.
+2. Navigate to the frontend directory using the `cd` command:
+
+```bash
+cd frontend
+```
+
+3. Install the required dependencies:
+
+```bash
+npm install
+```
+
+4. Start the frontend:
+
+```bash
+npm start
+```
+
+### Deployment
+
+To deploy the smart contract, follow these steps:
+
+1. Open the Remix IDE (https://remix.ethereum.org/).
+2. Paste your smart contract code into the editor.
+3. Select the correct Solidity version and compiler settings.
+4. Click on the "Solidity Compiler" tab, then click "Compile [ContractName]".
+5. Switch to the "Deploy & Run Transactions" tab.
+6. Select the environment (e.g., JavaScript VM, Injected Web3, etc.).
+7. Click on "Deploy" to deploy the smart contract.
+8. Note the deployed contract address.
+
+### Configurations
+
+Update the following configurations in the respective files:
+
+#### 1. MongoDB URL
+
+Navigate to the `config` directory and open the `config.js` file. Locate the `mongoURL` field and replace it with your own MongoDB URL.
+
+```javascript
+module.exports = {
+  // ...
+  mongoURL: 'mongodb://your-mongodb-url...', // Update with your MongoDB URL
+  // ...
+};
+```
+
+#### 2. Smart Contract Address
+
+Navigate to the `config` directory and open the `config.js` file. Locate the `contractAddress` field and replace it with the newly deployed contract address.
+
+```javascript
+module.exports = {
+  // ...
+  contractAddress: '0x123456789abcdef...', // Update with your contract address
+  // ...
+};
 
 ---
 
-**Note:** This README is a template. Please replace the placeholders and URLs with the actual information relevant to your project.
+**For Developers:** 
+
+We welcome your feedback, contributions, and ideas to make NexaChallenge even better!
+
+For inquiries, contact us at nexachallenge@gmail.com
+
