@@ -127,7 +127,7 @@ To deploy the smart contract, follow these steps:
 3. Select the correct Solidity version and compiler settings.
 4. Click on the "Solidity Compiler" tab, then click "Compile [ContractName]".
 5. Switch to the "Deploy & Run Transactions" tab.
-6. Select the environment (e.g., JavaScript VM, Injected Web3, etc.).
+6. Select the environment "Injected Web3"
 7. Click on "Deploy" to deploy the smart contract.
 8. Note the deployed contract address.
 
