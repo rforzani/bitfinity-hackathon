@@ -1,0 +1,120 @@
+.container {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    outline: none;
+    font-size: 13.5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    height: 100%;
+}
+.outerContainer {
+    position: relative;
+}
+.placeholder {
+    color: rgb(190, 190, 190);
+    margin: 9px 10px;
+}
+.value {
+    margin: 9px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: calc(100% - 60px);
+}
+.options {
+    max-height: 200px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    margin-top: 3px;
+    z-index: 5;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    width: 100%;
+}
+
+.parentOption {
+    padding: 8px 10px;
+    font-size: 13.5px;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    font-weight: bold;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cancelSelection {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 32px;
+}
+
+.childOption {
+    padding: 8px 18px;
+    font-size: 13.5px;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;   
+}
+
+.childOption:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.option {
+    padding: 8px 10px;
+    font-size: 13.5px;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.option:hover {
+    background-color: rgb(245, 245, 245);
+}
+.searchInput {
+    width: 100%;
+    height: 32px;
+    padding-left: 10px;
+    font-size: 13px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+}
+.searchInput::placeholder {
+    color: rgb(190, 190, 190);
+}
+.searchOption {
+    padding: 8px 10px;
+    font-size: 13.5px;
+    user-select: none;
+}
+.notFoundOption {
+    color: rgb(150,150,150);
+    padding: 8px 10px;
+    font-size: 13.5px;
+    user-select: none;
+}
+.arrow {
+    margin-left: auto;
+    margin-right: 10px;
+    width: 18px;
+    color: grey;
+    height: 18px;
+}

@@ -1,11 +1,32 @@
 import { Routes as ReactRouterRoutes, Route } from "react-router-dom";
+import { businessRoutes, loggedInRoutes } from "./config/routes";
+import { useContext } from "react";
+import { AuthContext } from "./context/authContext";
 
 export default function Routes({ pages } : { pages: any }) : any {
   const routes = useRoutes(pages);
-
-  const routeComponents = routes.map(({ path, component: Component }) => (
-    <Route key={path} path={path} element={<Component />} />
-  ));
+  const { isLoggedIn, isBusiness } = useContext(AuthContext);
+    const routeComponents = routes.map(({ path, component: Component }) => {
+        if (businessRoutes.includes(path)) {
+            if (isBusiness) {
+                return (<Route key={path} path={path} element={<Component />} />);    
+            } else {
+                return (null);
+            }
+        } else if (loggedInRoutes.includes(path)) {
+            if (isLoggedIn) {
+                return (<Route key={path} path={path} element={<Component />} />);    
+            } else {
+                return (null);
+            }
+        } else {
+            if (!isLoggedIn) {
+                return (<Route key={path} path={path} element={<Component />} />);
+            } else {
+                return (null);
+            }
+        }
+    });
 
   const NotFound = routes.find(({ path }) => path === "/notFound")?.component;
 
