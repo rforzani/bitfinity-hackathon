@@ -2,7 +2,7 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 
 class MongoManager {
     constructor() {
-        const mongoUri = "mongodb+srv://nexachallenge:KIhKC3F6xpxuMExa@cluster0.t4rv0q4.mongodb.net/?retryWrites=true&w=majority";
+        const mongoUri = "your-mongodb-url";
 
         this.client = new MongoClient(mongoUri, {serverApi: ServerApiVersion.v1, maxPoolSize: 20 });
     }
